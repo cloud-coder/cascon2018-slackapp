@@ -20,7 +20,7 @@ Some important pre-requisites are documented in <a href="Pre-requisites.md">Pre-
 1. <a href="lab00-preparation/README.md">Lab 00 - Preparation - Readme</a>
 1. <a href="lab01-step01-basicevent/README.md">Lab 01 - Step 01 - Basic Event - Readme</a>
 1. <a href="lab01-step02-getmoreinfo/README.md">Lab 01 - Step 02 - Get more information - Readme</a>
-1. <a href="lab02-step01-handlingacommand/README.md">Lab 02 - Step 01 - Handling a command - Readme</a>
-1. <a href="lab03-option01-savetocloudant/README.md">Lab 03 - Option 2 - Save to Cloudant - Readme</a>
+1. <a href="lab02-handlingacommand/README.md">Lab 02 - Handling a command - Readme</a>
+1. <a href="lab03-option01-savetocloudant/README.md">Lab 03 - Option 1 - Save to Cloudant - Readme</a>
 1. <a href="lab03-option02-watsonassistant/README.md">Lab 03 - Option 2 - Watson Assistant - Readme</a>
 
