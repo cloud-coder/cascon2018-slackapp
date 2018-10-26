@@ -1,4 +1,4 @@
-# Lab 01 - Step 03 - Saving data to cloudant
+# Lab 03 - Option 1 - Saving data to cloudant
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# Lab 01 - Step 04 - Watson Assitant
+# Lab 03 - Option 2 - Watson Assitant
 
 ## Objective
 
