@@ -1,0 +1,8 @@
+{
+    "cloudantUrl" : "https://standenswerceizentle:db04a6c10ec89a1ec4bab85bdcb7b86ce1370b2e@13056fe6-e3e5-43f6-9d1e-1e434234b6b5-bluemix.cloudant.com",
+    "cloudantDb" : "registrations",
+    "slackClientId" : "585673529829.changeme",
+    "slackClientSecret" : "changeme",
+    "slackVerificationToken" : "changeme"
+}
+
