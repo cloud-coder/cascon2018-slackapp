@@ -3,6 +3,7 @@
 This sample shows how to build a serverless Slack app using Slack Events API to receive events,
 with IBM Cloud Functions to process these events.
 
+
 ## Structure of the Lab
 
 The starting point is the contents seen in `lab00-preparation`. 
