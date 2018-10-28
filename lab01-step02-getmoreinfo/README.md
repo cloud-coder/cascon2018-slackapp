@@ -167,6 +167,11 @@ User Info API: https://api.slack.com/methods/users.info
    ```
 1. Deploy the update
 
+   Reuse the **parameters.json** configurations previously prepared from lab0, copying it to the same directory as your deploy.sh
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
+
    For linux or Mac user, you may need to add the execute permission first
 
    ```
