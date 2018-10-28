@@ -20,7 +20,7 @@ Note: Diagrams are created using https://www.draw.io/
 
    1. Select the database
 
-   1. Go to the _\*\*Permissions_**, and select the **Generate API Key\*\*
+   1. Go to **Permissions**, and select **Generate API Key**
 
    ![](../xdocs/cloudant-generate-api-key.png)
 
