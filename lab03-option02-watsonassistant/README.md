@@ -2,7 +2,7 @@
 
 ## Objective
 
-Enhance the IBM function to call the Watson Assitant API to have a conversation in Slack.
+Enhance the IBM function to call the Watson Assistant API to have a conversation in Slack.
 
 ## Architecture
 
