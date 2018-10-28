@@ -33,7 +33,7 @@ Note: Diagrams are created using https://www.draw.io/
 1. Update the parameters.json to add the following lines
    
    ```json
-   "channelDataUrl" : "https://<username>:<key>@<yourdatabase>-bluemix.cloudant.com",
+   "channelDataUrl" : "https://<key>:<password>@<yourdatabase>-bluemix.cloudant.com",
    "channelDataDb" : "channeldata"
    ```
   
