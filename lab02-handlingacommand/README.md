@@ -1,4 +1,4 @@
-# Lab 02 - Step 01 - Handling a Command
+# Lab 02 - Handling a Command
 
 ## Objective
 
