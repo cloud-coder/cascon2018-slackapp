@@ -14,4 +14,45 @@ Note: Diagrams are created using https://www.draw.io/
 
 ## Steps
 
-1. 
+1. Copy the **template.parameters.json** file to **solution/parameters.json**
+2. cd the dirtory of solution
+3. Copy the following parameters settings from lab01-step01-basicevent
+
+   ```javascript
+   "cloudantUrl": "YOUR_CLOUDANT_URL",
+   "cloudantDb": "registrations",
+   "slackClientId": "YOUR_SLACK_CLIENT_ID",
+   "slackClientSecret": "YOUR_SLACK_CLIENT_SECRET",
+   "slackVerificationToken": "YOUR_SLACK_VERIFICATION_TOKEN"
+   ```
+
+4. Deploy the update
+
+   For linux or Mac user, you may need to add the execute permission first
+
+   ```
+   chmod +x deploy.sh
+   ```
+
+   1. Uninstall with ./deploy.sh --uninstall (required because we need to re-create the package with the additional parameters.json file)
+   2. Install with ./deploy.sh --install
+
+5. Go to the channel and type a message and get it replied back out to you:
+
+   Try the following messages:
+
+   ```
+     "hi",
+     "please turn on music"
+     "Jazz"
+     "Light on please"
+     "find a restaurant for me"
+     "Tacos"
+     "nearest"
+     "tomorrow"
+     "7pm"
+     "Turn off the light"
+     "Music off"
+   ```
+
+   ![](../xdocs/slack_watson.jpg)

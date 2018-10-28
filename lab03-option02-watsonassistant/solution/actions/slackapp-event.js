@@ -231,8 +231,6 @@ function main(args) {
   // Connect to the Cloudant database
   const cloudant = require("cloudant")({ url: args.cloudantUrl });
   const botsDb = cloudant.use(args.cloudantDb);
-  const cloudantChannel = require("cloudant")({ url: args.channelDataUrl });
-  const channelData = cloudantChannel.use(args.channelDataDb);
 
   // Get the event to process
   const event = {
@@ -338,16 +336,6 @@ function main(args) {
             return true;
           }
           return callback(null);
-        },
-
-        // Create DB entry
-        function(callback) {
-          // Console.log("Creating entry in database");
-          channelData.insert(event, (err, data) => {
-            console.log("Channel Data Insert Error:", err);
-            console.log("Channel Data Insert Data:", data);
-            callback(err, data);
-          });
         }
       ],
 
@@ -380,7 +368,6 @@ let watsonAssistant = (args, message, context, callback) => {
   console.log("compose url " + watson_url);
 
   let body;
-  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>context" + JSON.stringify(context));
 
   if (context) {
     body = JSON.stringify({
@@ -398,8 +385,7 @@ let watsonAssistant = (args, message, context, callback) => {
       alternate_intents: true
     });
   }
-  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-  console.log(body);
+
   request(
     {
       method: "POST",
@@ -434,28 +420,6 @@ let updateMessage = response => {
   console.log("start calling updateMessage");
   var responseText = null;
   console.log("response is " + response);
-
-  // var entityValue = null;
-  // if (response.entities && response.entities[0]) {
-  //   entityValue = response.entities[0].value;
-  // }
-  // if (response.intents && response.intents[0]) {
-  //   var intent = response.intents[0];
-
-  //   if (intent.confidence >= 0.75) {
-  //     console.log("get intent");
-  //     responseText = "I understood your intent was " + intent.intent;
-  //   } else if (intent.confidence >= 0.5) {
-  //     responseText = "I think your intent was " + intent.intent;
-  //   }
-  // }
-  // if (responseText) {
-  //   if (entityValue) {
-  //     responseText = responseText + " " + entityValue;
-  //   }
-  //   console.log("responseText is " + responseText);
-  //   response.output.text = responseText;
-  // }
 
   return response;
 };
