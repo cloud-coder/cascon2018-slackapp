@@ -30,7 +30,15 @@ Note: Diagrams are created using https://www.draw.io/
 
     ![](../xdocs/cloudant-permissions.png)
 
-1. Update the parameters.json to add the following lines
+1. Update the **parameters.json**
+
+   - May want to copy the **parameters.json** configurations (previously prepared from lab0) to the same directory as your deploy.sh
+   
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
+     
+   Update it to add the following lines
    
    ```json
    "channelDataUrl" : "https://<key>:<password>@<yourdatabase>-bluemix.cloudant.com",
