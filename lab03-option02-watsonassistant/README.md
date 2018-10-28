@@ -15,7 +15,7 @@ Note: Diagrams are created using https://www.draw.io/
 ## Steps
 
 1. Copy the **template.parameters.json** file to **solution/parameters.json**
-2. cd the dirtory of solution
+2. cd to the *solution* directory
 3. Copy the following parameters settings from lab01-step01-basicevent
 
    ```javascript
