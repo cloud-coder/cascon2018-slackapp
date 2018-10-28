@@ -47,6 +47,9 @@ In order to implement some code, we need to create the application on the Slack 
 
 
 ## Log in to IBM Cloud
+
+Open up a terminal. Type the following to login to IBM Cloud.
+
 ```shell
 ibmcloud login
 ibmcloud target -o <ibm cloud user> -s dev
@@ -83,11 +86,13 @@ The following will walk you through some of the details of the files provided to
 
 ## Create the IBM Cloud Cloudant service 
 
-1. Open the IBM Cloudant console
+1. Open the IBM Cloudant console -> https://console.bluemix.net/catalog/services/cloudant
+      - You may need to first select  **Lite (free) plan**
 
 1. Create a Cloudant NoSQL DB service instance named **cloudant-for-slackapp**
+      - Select an *Available Authentication Method* from the drop down (eg. *Use both legacy credentials and IAM*) and click **create**
 
-1. Open the Cloudant service dashboard and create a new database named **registrations**
+1. On Cloudant service page, click **Launch Cloudant Dashboard** to open the Cloudant service dashboard and create a new database named **registrations**
 
 1. Select the database
 
