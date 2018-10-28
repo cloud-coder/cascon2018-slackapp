@@ -39,7 +39,7 @@ In order to implement some code, we need to create the application on the Slack 
 * Click on the **Create an App** button
 * Fill in the form *Create a Slack App* 
     * Give your application a name, for example "Super Service"
-    * Select the *Development Slack Workspace* and set it as your own workspace
+    * Select your workspace from the *Development Slack Workspace* dropdown
     * Review and accept the *Terms of Service*
     * Click **Create App**
 * On the left, you should be on the *Basic Information* link, Scroll to the **App Credentials** section
