@@ -1,4 +1,4 @@
-# Lab 03 - Option 2 - Watson Assitant
+# Lab 03 - Option 2 - Watson Assistant
 
 ## Objective
 
