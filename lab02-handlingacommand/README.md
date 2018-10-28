@@ -12,12 +12,6 @@ https://console.bluemix.net/docs/services/Weather/weather_tutorials_samples.html
 
 ## Steps
 
-### Modify the deployment script
-
-1. Modify the `deploy.sh` script to include the command deployment
-    1. Uncomment the commands that refer to the slackapp-command.js
-1. Deploy the command: `./deploy.sh --install`
-
 ### Modify the slackapp-command.js 
 
 1. The weather can be obtained by calling the following API:
@@ -81,8 +75,14 @@ function (registration, user, callback) {
 ```
 
 
+### Modify the deployment script
 
-### Create a new command <a name="create_new_command"></a>
+1. Modify the `deploy.sh` script to include the command deployment
+    (Uncomment the commands that refer to the slackapp-command.js)
+1. Deploy the command: `./deploy.sh --install`
+
+
+### Create a new Slash command <a name="create_new_command"></a>
 1. Go to https://api.slack.com and select *Your apps*
 
 1. Under Slash Commands, **Create New Command**
