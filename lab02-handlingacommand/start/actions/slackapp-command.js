@@ -78,6 +78,9 @@ function main (args) {
   };
 
 // Create your getWeather API call here
+/**
+* TODO: Insert request from Step 1i
+*/    
 
 
   return new Promise(((resolve, reject) => {
@@ -107,6 +110,9 @@ function main (args) {
         },
 
         // Reply to the message (handle the command and reply to the user with the weather information)
+/**
+* TODO: Insert callback function from Step 1ii
+*/      
 
       ],
 

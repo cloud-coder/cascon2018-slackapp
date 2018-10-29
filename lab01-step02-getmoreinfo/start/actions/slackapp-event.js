@@ -24,6 +24,11 @@ const _ = require("lodash");
  * @param {function} callback - function(err, team)
  * @returns {Object} team - team information
  */
+/**
+* TODO: Insert teamInfo function from Step 2i
+*/    
+ 
+ 
 
  /**
  * Gets the details of a given channel through the Slack Web API
@@ -33,6 +38,9 @@ const _ = require("lodash");
  * @param {function} callback - function(err, channel)
  * @returns {Object} channel - channel information
  */
+/**
+* TODO: Insert channelInfo function from Step 2ii
+*/ 
 
 
  /**
@@ -43,6 +51,9 @@ const _ = require("lodash");
  * @param {function} callback - function(err, user)
  * @returns {Object} user - user information
  */
+/**
+* TODO: Insert usersInfo function from Step 2iii
+*/
 
 
 /**
@@ -142,8 +153,20 @@ function main (args) {
         },
 
         // Grab info about the team
+/**
+* TODO: Insert function from Step 3i
+*/
+        
         // Grab info about the channel
+/**
+* TODO: Insert function from Step 3ii
+*/
+
         // Grab info about the user
+/**
+* TODO: Insert function from Step 3iii
+*/
+
         // Reply to the message
         function (registration, team, channel, user, callback) {
           if (event.event.type === "message" && !event.event.bot_id) {
@@ -157,6 +180,9 @@ function main (args) {
             // This repeats the message from the use back to the channel and should likely not be used
             postMessage(
               registration.bot.bot_access_token, event.event.channel,
+/**
+* TODO: Update "event.event.user" to "user.real_name" from Step 4
+*/
               `Hey ${event.event.user}, you said ${event.event.text}`,
               (err, result) => {
                 callback(err);

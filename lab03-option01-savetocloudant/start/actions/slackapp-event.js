@@ -18,6 +18,10 @@ const request = require("request");
 const _ = require("lodash");
 
 /**
+* TODO: Insert tsToDate function from Step 4i
+*/
+
+/**
  * Gets the details of a given team through the Slack Web API
  *
  * @param {String} accessToken - authorization token
@@ -176,6 +180,9 @@ function main (args) {
   // Connect to the Cloudant database
   const cloudant = require("cloudant")({url: args.cloudantUrl});
   const botsDb = cloudant.use(args.cloudantDb);
+/**
+* TODO: Insert variables from Step 3i
+*/
 
   // Get the event to process
   const event = {
@@ -237,6 +244,9 @@ function main (args) {
             event.event.channel_name = channel.name; // The channel name
             event.event.user_name = user.name; // The user name
             event.event.user_real_name = user.real_name; // User real name
+/**
+* TODO: Insert call to tsToDate function from Step 4ii
+*/
 
             // This repeats the message from the use back to the channel and should likely not be used
             postMessage(
@@ -250,6 +260,9 @@ function main (args) {
           }
           return callback(null);
         }
+/**
+* TODO: Insert callback function from Step 3ii, NOTE: add comma to previous callback function
+*/        
       ],
 
       (err, response) => {

@@ -17,10 +17,9 @@ const async = require("async");
 const request = require("request");
 const _ = require("lodash");
 
- /** 
-  * Posts a message to a channel with Slack Web API
-  */
-// *** INSERT YOUR CODE HERE ***
+/**
+* TODO: Insert postMessage function from Step 3i
+*/ 
 
 /**
  * @param {Object} args - The arguments
@@ -54,7 +53,11 @@ function main (args) {
     };
   }
   // Identify if there are message subtypes to ignore See https://api.slack.com/events/message for details
-  // *** INSERT YOUR CODE HERE ***
+
+/**
+* TODO: Insert code from Step 3ii
+*/ 
+
 
   // Connect to the Cloudant database
   const cloudant = require("cloudant")({url: args.cloudantUrl});
@@ -87,8 +90,10 @@ function main (args) {
           });
         }
 
-        // Reply to the message
-        // *** INSERT YOUR CODE HERE ***
+
+/**
+* TODO: Insert reply from Step 3iii
+*/ 
 
       ],
 
