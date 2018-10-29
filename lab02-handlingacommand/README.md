@@ -79,6 +79,11 @@ function (registration, user, callback) {
 
 1. Modify the `deploy.sh` script to include the command deployment
     (Uncomment the commands that refer to the slackapp-command.js)
+   
+1. Reuse the **parameters.json** configurations previously prepared from lab0, copying it to the same directory as your deploy.sh
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
 1. Deploy the command: `./deploy.sh --install`
 
 

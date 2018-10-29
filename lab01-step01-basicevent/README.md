@@ -103,6 +103,11 @@ Slack events: https://api.slack.com/events/message
      ```
 
      This shows the packages, actions, triggers and rules currently deployed in your namespace.
+     
+   - Reuse the **parameters.json** configurations previously prepared from lab0, copying it to the same directory as your deploy.sh
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
 
    - Create the actions:
 
@@ -139,11 +144,9 @@ Slack events: https://api.slack.com/events/message
      > Note: the script can also be used to _--uninstall_ the Cloud Functions artifacts to _--update_ the artifacts if you change the action code.
 
 ### Add a Slack bot, a Slack event and register the Cloud Function with the event.
-1. Go to Slack and add the bot
+1. Go to your Slack API service page to add a bot user
 
-   1. Add a bot user <a name="add_bot_user"></a>
-
-   1. Go to the **Bot Users** section of your Slack app
+   1. Click on **Bot Users** 
 
       ![](../xdocs/app-addbot.png)
 
@@ -215,7 +218,7 @@ Our app is finally ready to be installed!
 
    ![](../xdocs/app-managedistribution.png)
 
-1. Click the **Add the Slack** button
+1. Click the **Add to Slack** button
 
 1. Select the team where to install the app
 

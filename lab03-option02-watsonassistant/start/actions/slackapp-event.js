@@ -17,6 +17,8 @@ const async = require("async");
 const request = require("request");
 const _ = require("lodash");
 
+// TODO: Add a Watson Context variable. This would not be the long term solution but will work for purposes of demonstration
+
 /**
  * Gets the details of a given team through the Slack Web API
  *
@@ -238,6 +240,8 @@ function main (args) {
             event.event.user_name = user.name; // The user name
             event.event.user_real_name = user.real_name; // User real name
 
+            // TODO: Add code to call the method that will call Watson Assistant API and to respond to the user as opposed to the code below
+
             // This repeats the message from the use back to the channel and should likely not be used
             postMessage(
               registration.bot.bot_access_token, event.event.channel,
@@ -267,4 +271,8 @@ function main (args) {
       }
     );
   }));
+
+  // TODO: Add method that will call Watson API 
+
+
 }
