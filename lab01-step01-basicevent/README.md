@@ -103,6 +103,11 @@ Slack events: https://api.slack.com/events/message
      ```
 
      This shows the packages, actions, triggers and rules currently deployed in your namespace.
+     
+   - Reuse the **parameters.json** configurations previously prepared from lab0, copying it to the same directory as your deploy.sh
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
 
    - Create the actions:
 

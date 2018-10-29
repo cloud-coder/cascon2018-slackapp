@@ -20,7 +20,7 @@ Note: Diagrams are created using https://www.draw.io/
 
    1. Select the database
 
-   1. Go to the _\*\*Permissions_**, and select the **Generate API Key\*\*
+   1. Go to **Permissions**, and select **Generate API Key**
 
    ![](../xdocs/cloudant-generate-api-key.png)
 
@@ -30,10 +30,18 @@ Note: Diagrams are created using https://www.draw.io/
 
     ![](../xdocs/cloudant-permissions.png)
 
-1. Update the parameters.json to add the following lines
+1. Update the **parameters.json**
+
+   - May want to copy the **parameters.json** configurations (previously prepared from lab0) to the same directory as your deploy.sh
+   
+     ```
+     cp ../../lab00-preparation/parameters.json .
+     ```
+     
+   Update it to add the following lines
    
    ```json
-   "channelDataUrl" : "https://<username>:<key>@<yourdatabase>-bluemix.cloudant.com",
+   "channelDataUrl" : "https://<key>:<password>@<yourdatabase>-bluemix.cloudant.com",
    "channelDataDb" : "channeldata"
    ```
   

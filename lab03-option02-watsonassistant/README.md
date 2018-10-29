@@ -14,9 +14,13 @@ Note: Diagrams are created using https://www.draw.io/
 
 ## Steps
 
-1. Copy the **template.parameters.json** file to **solution/parameters.json**
-2. cd to the *solution* directory
-3. Copy the following parameters settings from lab01-step01-basicevent
+1. cd to the *solution* directory
+2. Reuse the **parameters.json** file, copying it from previous lab
+```
+cp ../../lab00-preparation/parameters.json .
+```
+3. Ensure the following settings are still correctly set
+
 
    ```javascript
    "cloudantUrl": "YOUR_CLOUDANT_URL",

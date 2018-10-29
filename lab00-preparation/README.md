@@ -103,7 +103,7 @@ The following will walk you through some of the details of the files provided to
 
    ![](../xdocs/cloudant-adddesigndoc.png)
 
-1. Go to the _**Permissions_**, and select the **Generate API Key**
+1. Go to **Permissions**, and select **Generate API Key**
 
    ![](../xdocs/cloudant-generate-api-key.png)
 
