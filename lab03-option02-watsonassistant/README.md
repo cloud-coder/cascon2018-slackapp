@@ -73,20 +73,22 @@ Note: Diagrams are created using https://www.draw.io/
 
    ![](../xdocs/slack_watson.jpg)
 
-We use a predefined Watson Asistant workspace for this workshop, so you do not need to handle the following steps, but it will be needed if you take use of your own Watson Assistant workspace.
+# Creating the Watson Assistant
+
+We use a predefined Watson Assistant workspace for this workshop, so you do not need to handle the following steps, but it will be needed if you take use of your own Watson Assistant workspace.
 
 1. Log in to IBM Cloud from a browser
 
-2. Find Watson Asistant Service from the catalog and create a free version service.
+1. Find Watson Assistant Service from the catalog and create a free version service.
 
-3. Open the Watson Assistant Service and click on Launch Tool button.
+1. Open the Watson Assistant Service and click on Launch Tool button.
 
-4. After the tool is launched, go the the Workspace tab and click on the import icon as shown below.
+1. After the tool is launched, go the the Workspace tab and click on the import icon as shown below.
 
-![](../xdocs/watsonAssistantWorspace.jpg)
+    ![](../xdocs/watsonAssistantWorspace.jpg)
 
-5. Browse to the file of car_demo_watsonAssistant_wp.json and import it.
+1. Browse to the file `solution/car_demo_watsonAssistant_wp.json` and import it.
 
-6. You will have the same Car_Demo workspace imported.
+1. You will have the same Car_Demo workspace imported.
 
-7, Update your parameters.json with your own Watson Assistan credentials and workspace id.
+1. Update your `parameters.json` with your own Watson Assistant credentials and workspace id.
