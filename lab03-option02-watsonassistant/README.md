@@ -40,11 +40,11 @@ Note: Diagrams are created using https://www.draw.io/
    "WATSON_COVERSATION_VERSION": "2018-02-16"
    ```
 
-   - This is a preconfigure Watson Assistant instance that you will connect to and use. This instance will likely be unavailable at later dates. See the instructions on importing a configuration to set up your own instance.
+   - **This is a preconfigured Watson Assistant instance that you will connect to and use. This instance will likely be unavailable at later dates. See the instructions on importing a configuration to set up your own instance.**
 
 1. Deploy the update
 
-   For linux or Mac user, you may need to add the execute permission first
+   For Linux or Mac user, you may need to add the execute permission first
 
    ```shell
    chmod +x deploy.sh
