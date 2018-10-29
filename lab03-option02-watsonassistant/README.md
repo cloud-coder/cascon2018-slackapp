@@ -18,7 +18,7 @@ Note: Diagrams are created using https://www.draw.io/
 
 1. Copy the `template.parameters.json` found in the root directory to the _solution_ directory. For example
    ```
-   cp ../lab03-option02-watsonassistant/template.parameters.json parameters.json
+   cp ../template.parameters.json parameters.json
    ```
 1. Ensure the following settings are still correctly set (you will have to copy these settings from your previous lab).
 
