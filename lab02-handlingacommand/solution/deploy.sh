@@ -46,7 +46,7 @@ function uninstall() {
   echo "Removing actions..."
   ibmcloud wsk action delete $PACKAGE_NAME/slackapp-register
   ibmcloud wsk action delete $PACKAGE_NAME/slackapp-command
-#  ibmcloud wsk action delete $PACKAGE_NAME/slackapp-event
+  ibmcloud wsk action delete $PACKAGE_NAME/slackapp-event
   ibmcloud wsk package delete $PACKAGE_NAME
 
   echo "Done"
