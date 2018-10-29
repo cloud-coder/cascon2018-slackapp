@@ -51,6 +51,7 @@ User Info API: https://api.slack.com/methods/users.info
 
 1. Solution
 
+   i.  Create *teamInfo* Function
    ```javascript
    /**
     * Gets the details of a given team through the Slack Web API
@@ -81,7 +82,10 @@ User Info API: https://api.slack.com/methods/users.info
        }
      );
    }
+   ```
 
+   ii.  Create *channelsInfo* Function
+  ```javascript
    /**
     * Gets the details of a given channel through the Slack Web API
     *
@@ -119,7 +123,10 @@ User Info API: https://api.slack.com/methods/users.info
        }
      );
    }
-
+   ```
+ 
+   iii.  Create *usersInfo* Function
+  ```javascript
    /**
     * Gets the details of a given user through the Slack Web API
     *
@@ -153,7 +160,40 @@ User Info API: https://api.slack.com/methods/users.info
    }
    ```
 
-1. Modify the code to reply back with the real user name
+3. Reply more information
+
+
+   i.  Reply *teamInfo*
+   ```javascript
+          function (registration, callback) {
+          console.log("Looking up info for team", event.team_id);
+          teamInfo(registration.bot.bot_access_token, (err, team) => {
+            callback(err, registration, team);
+          });
+        },
+   ```
+
+   ii.  Reply *channelInfo*
+   ```javascript
+        function (registration, team, callback) {
+          console.log("Looking up info for channel", event.event.channel);
+          channelsInfo(registration.bot.bot_access_token, event.event.channel, (err, channel) => {
+            callback(err, registration, team, channel);
+          });
+        },
+   ```
+
+  iii.  Reply *userInfo*
+   ```javascript
+        function (registration, team, channel, callback) {
+          console.log("Looking up info for user", event.event.user);
+          usersInfo(registration.bot.bot_access_token, event.event.user, (err, user) => {
+            callback(err, registration, team, channel, user);
+          });
+        },
+   ```
+
+4. Modify the code to reply back with the real user name
    ```javascript
    // This repeats the message from the use back to the channel and should likely not be used
    postMessage(
@@ -165,7 +205,7 @@ User Info API: https://api.slack.com/methods/users.info
      }
    );
    ```
-1. Deploy the update
+5. Deploy the update
 
    Reuse the **parameters.json** configurations previously prepared from lab0, copying it to the same directory as your deploy.sh
      ```
@@ -180,5 +220,5 @@ User Info API: https://api.slack.com/methods/users.info
 
    Update with `./deploy.sh --update`
 
-1. Go to the channel and type a message and get it replied back out to you
+6. Go to the channel and type a message and get it replied back out to you
    1. Notice that the user real name is used in the reply
