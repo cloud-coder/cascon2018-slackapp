@@ -17,6 +17,8 @@ The following shows the architecture of the eventual end product for Lab 01.
 
 ## Pre-requisites
 
+**Make sure to review the <a href='../Pre-requisites.md'>Pre-Requistes documented here</a>**
+
 In order to work on the lab we need to make sure that we have all the following information:
 - IBM Cloud username and password
 - Slack Workspace name, username and password
@@ -150,4 +152,4 @@ The use of a parameters.json file prevents this issue but obviously may not be a
 
 ## Next Step
 
-You are now ready to start `Lab 01 - Step 01 - Basic Event`
+You are now ready to start <a href='../lab01-step01-basicevent/README.md'>Lab 01 - Step 01 - Basic Event</a>

@@ -59,24 +59,20 @@ user@linux:~# git --version
 git version 2.19.0
 ```
 
-# For the Lab Only (i.e. not sent via email prior)
-
-## On the virtual machine
-
-1. Connect to the virtual machine with the credentials provided in class
-1. Get familiar with the environment
-1. Go to the `cascon` directory
+In the instructions above, the important line to confirm is that the plugins contain the following:
 ```
-cd cascon
-```
-1. Run the following command to clone the Git repository
-```
-./gitclone.sh
+cloud-functions/wsk/functions/fn       1.0.23
 ```
 
-## OR, in your own environment clone the repository
+If that plugin is not present, please run the following command:
 
-You can now clone the repository to the local machine
+```shell
+ibmcloud plugin install cloud-functions
+```
+
+## Clone the workshop repository
+
+You can now clone the repository to your local machine
 
 ```
 git clone https://github.com/cloud-coder/cascon2018-slackapp.git

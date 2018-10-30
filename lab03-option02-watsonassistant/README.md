@@ -92,3 +92,9 @@ We use a predefined Watson Assistant workspace for this workshop, so you do not 
 1. You will have the same Car_Demo workspace imported.
 
 1. Update your `parameters.json` with your own Watson Assistant credentials and workspace id.
+
+## Next Step
+
+You are now ready to continue with one of the following:
+- <a href='../lab02-handlingacommand/README.md'>Lab 02 - Handling a Command</a>
+- <a href='../lab03-option01-savetocloudant/README.md'>Lab 03 - Option 01 - Save to Cloudant</a>

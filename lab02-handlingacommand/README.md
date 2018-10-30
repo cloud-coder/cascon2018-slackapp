@@ -130,3 +130,8 @@ function (registration, user, callback) {
    
    ```
    
+## Next Step
+
+You are now ready to continue with one of the following:
+- <a href='../lab03-option01-savetocloudant/README.md'>Lab 03 - Option 01 - Save to Cloudant</a>
+- <a href='../lab03-option02-watsonassistant/README.md'>Lab 03 - Option 02 - Watson Assistant</a>

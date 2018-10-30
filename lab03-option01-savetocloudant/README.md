@@ -117,3 +117,10 @@ Note: Diagrams are created using https://www.draw.io/
 1. Go to the channel and type a message and get it replied back out to you
 1. Open the Cloudant console and check that the Cloudant database has the message information in it
    1. Click on the _Table_ tab and you can view the _datetime_ column to track the date and time of the messages
+
+
+## Next Step
+
+You are now ready to continue with one of the following:
+- <a href='../lab02-handlingacommand/README.md'>Lab 02 - Handling a Command</a>
+- <a href='../lab03-option02-watsonassistant/README.md'>Lab 03 - Option 02 - Watson Assistant</a>

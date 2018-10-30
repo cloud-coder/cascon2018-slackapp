@@ -239,3 +239,8 @@ Our app is finally ready to be installed!
     1. Select "Invite new members to join..."
     1. Type the name of the bot and invite the bot to the channel
 1. Type a message and get it sent back out to you
+
+## Next Step
+
+You are now ready to start <a href='../lab01-step02-getmoreinfo/README.md'>Lab 01 - Step 02 - Get more info</a>
+

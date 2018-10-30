@@ -222,3 +222,11 @@ User Info API: https://api.slack.com/methods/users.info
 
 6. Go to the channel and type a message and get it replied back out to you
    1. Notice that the user real name is used in the reply
+
+## Next Step
+
+You are now ready to continue with one of the following:
+- <a href='../lab02-handlingacommand/README.md'>Lab 02 - Handling a Command</a>
+- <a href='../lab03-option01-savetocloudant/README.md'>Lab 03 - Option 01 - Save to Cloudant</a>
+- <a href='../lab03-option02-watsonassistant/README.md'>Lab 03 - Option 02 - Watson Assistant</a>
+
