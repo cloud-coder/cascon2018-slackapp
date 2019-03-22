@@ -90,6 +90,8 @@ function (registration, user, callback) {
 ### Create a new Slash command <a name="create_new_command"></a>
 1. Go to https://api.slack.com and select *Your apps*
 
+1. Select your application
+
 1. Under Slash Commands, **Create New Command**
 
    ![](../xdocs/app-newcommand.png)
@@ -98,7 +100,7 @@ function (registration, user, callback) {
 
    1. Command: **/weather**
 
-   1. Request URL: URL of the `slackapp-command` web action. The URL should look like `https://openwhisk.ng.bluemix.net/api/v1/web/your-org_your-space/slackapp/slackapp-command`
+   1. Request URL: URL of the `slackapp-command` web action. The URL should look like `https://us-south.functions.cloud.ibm.com/api/v1/web/your-org_your-space/slackapp/slackapp-command`
 
    1. Short Description: **A command that displays the weather for the address provided**
 
@@ -108,7 +110,7 @@ function (registration, user, callback) {
 
 1. Save
 
-1. If you see the following prompt (yellow), click the link
+1. If you see the following prompt (yellow), **click the link to reinstall the app**
 
    ![](../xdocs/app-permissionscopewarning.png)
 

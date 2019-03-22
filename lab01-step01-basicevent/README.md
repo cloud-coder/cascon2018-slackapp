@@ -116,10 +116,10 @@ Slack events: https://api.slack.com/events/message
      ```
      chmod +x deploy.sh
      ```
+     On the command line you can then run the following command to deploy.
 
      ```
-     chmod +x deploy.sh
-     ./deploy.sh --install
+         ./deploy.sh --install
      ```
 
      If all goes well it outputs:
@@ -131,14 +131,10 @@ Slack events: https://api.slack.com/events/message
      ok: created action slackapp/slackapp-register
      Adding app event processing
      ok: created action slackapp/slackapp-event
-     Adding app command processing
-     ok: created action slackapp/slackapp-command
      OAuth URL:
-     https://openwhisk.ng.bluemix.net/api/v1/web/<org_space>/slackapp/slackapp-register
-     Command URL:
-     https://openwhisk.ng.bluemix.net/api/v1/web/<org_space>/slackapp/slackapp-command
+     https://us-south.functions.cloud.ibm.com//api/v1/web/<org_space>/slackapp/slackapp-register
      Event Subscription Request URL:
-     https://openwhisk.ng.bluemix.net/api/v1/web/<org_space>/slackapp/slackapp-event
+     https://us-south.functions.cloud.ibm.com//api/v1/web/<org_space>/slackapp/slackapp-event
      ```
 
      > Note: the script can also be used to _--uninstall_ the Cloud Functions artifacts to _--update_ the artifacts if you change the action code.
@@ -166,7 +162,7 @@ Slack events: https://api.slack.com/events/message
 
       ![](../xdocs/app-enableevents.png)
 
-   1. Set the Request URL to the URL of the `slack-event` web action. The URL should look like `https://openwhisk.ng.bluemix.net/api/v1/web/your-org_your-space/slackapp/slackapp-event`.
+   1. Set the Request URL to the URL of the `slack-event` web action. The URL should look like `https://us-south.functions.cloud.ibm.com/api/v1/web/your-org_your-space/slackapp/slackapp-event`.
    
       You can run the command below to determine the Request URL:
       
@@ -196,11 +192,11 @@ Slack events: https://api.slack.com/events/message
 
 ### Set the callback URL for authentication <a name="set_callback_url"></a>
 
-1. Under OAuth and Permissions, add a new Redirect URL. This URL will be called when a user installs your application in a team. It should point to the `slackapp-register` web action. The URL should look like `https://openwhisk.ng.bluemix.net/api/v1/web/your-org_your-space/slackapp/slackapp-register`
+1. Under OAuth and Permissions, add a new Redirect URL. This URL will be called when a user installs your application in a team. It should point to the `slackapp-register` web action. The URL should look like `https://us-south.functions.cloud.ibm.com/api/v1/web/your-org_your-space/slackapp/slackapp-register`
 
    ![](xdocs/app-setoauth.png)
 
-1. Click **Save Changes**
+1. Click **Save URLs**
 
 Our app is finally ready to be installed!
 
