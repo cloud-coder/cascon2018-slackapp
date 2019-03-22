@@ -26,7 +26,9 @@ Creating your own Slack team is recommended if you want to play with the integra
     - Review and accept the terms and then click **I Agree**
     - Click **Skip For Now** on the Send Invitations page
 
-## Installation of the environment on Linux (Ubuntu)
+## Installation of the environment
+
+### Linux (Ubuntu)
 In this sample you will need to work with Git and the IBM Cloud command line developer tools. Next you will install these utilities that needed to setup your development environment. The steps for doing so in Linux are below:
 
 ```shell
@@ -35,6 +37,7 @@ sudo apt-get upgrade
 curl -sL https://ibm.biz/idt-installer | bash
 sudo apt-get install git
 ```
+### Windows or Mac 
 
 See the links below for setting up your environment on a Mac or Windows 10 (PowerShell) machine:
 Instructions for IBM Cloud can be found here: https://clis.ng.bluemix.net/
