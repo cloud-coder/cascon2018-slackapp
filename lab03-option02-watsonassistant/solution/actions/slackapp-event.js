@@ -331,7 +331,6 @@ function main(args) {
                 }
               }
             );
-            // This repeats the message from the use back to the channel and should likely not be used
 
             return true;
           }
@@ -356,19 +355,15 @@ function main(args) {
   });
 }
 
-let watsonAssistant = (args, message, context, callback) => {
+const watsonAssistant = (args, message, context, callback) => {
   console.log("start calling watson assistant for " + message);
   var watsonAssistantVersion = args.WATSON_COVERSATION_VERSION || "2018-02-16";
-  var watson_url =
-    args.CONVERSATION_URL +
-    "/v1/workspaces/" +
-    args.WORKSPACE_ID +
-    "/message?version=" +
-    watsonAssistantVersion;
-  console.log("compose url " + watson_url);
+  var watson_url = `
+    ${args.CONVERSATION_URL}/v1/workspaces/${
+    args.WORKSPACE_ID
+  }/message?version=${watsonAssistantVersion}`;
 
   let body;
-
   if (context) {
     body = JSON.stringify({
       input: {
@@ -385,7 +380,6 @@ let watsonAssistant = (args, message, context, callback) => {
       alternate_intents: true
     });
   }
-
   request(
     {
       method: "POST",
@@ -399,27 +393,15 @@ let watsonAssistant = (args, message, context, callback) => {
         "Content-Type": "application/json"
       },
       body
-
-      //json: true
     },
     (error, response, body) => {
       if (error) {
         callback("Unable to connect to Watson Assistant" + error);
         console.log("get error response, error:" + error);
       } else {
-        //callback(body);
         var jsonBody = JSON.parse(body);
-        updateMessage(jsonBody);
         callback(undefined, jsonBody);
       }
     }
   );
-};
-
-let updateMessage = response => {
-  console.log("start calling updateMessage");
-  var responseText = null;
-  console.log("response is " + response);
-
-  return response;
 };

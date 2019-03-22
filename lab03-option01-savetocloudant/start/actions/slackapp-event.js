@@ -18,8 +18,36 @@ const request = require("request");
 const _ = require("lodash");
 
 /**
-* TODO: Insert tsToDate function from Step 4i
-*/
+ * Function to convert a timestamp to human readable date
+ * @param {Number} timestamp the timestamp to convert to a date
+ * @returns {String} the timestamp in a human readable format string
+ */
+function tsToDate(timestamp) {
+  const date = new Date(timestamp * 1000); // Multiplied by 1000 so that the argument is in milliseconds, not seconds
+  const year = date.getFullYear();
+  const month = "0" + (date.getMonth() + 1);
+  const day = "0" + date.getDate();
+  const hours = "0" + date.getHours();
+  const minutes = "0" + date.getMinutes();
+  const seconds = "0" + date.getSeconds();
+  const milliseconds = ((timestamp * 1000) % 1).toFixed(3).substr(2);
+
+  return (
+    year +
+    "-" +
+    month.substr(-2) +
+    "-" +
+    day.substr(-2) +
+    " " +
+    hours.substr(-2) +
+    ":" +
+    minutes.substr(-2) +
+    ":" +
+    seconds.substr(-2) +
+    "." +
+    milliseconds
+  );
+}
 
 /**
  * Gets the details of a given team through the Slack Web API
@@ -28,24 +56,27 @@ const _ = require("lodash");
  * @param {function} callback - function(err, team)
  * @returns {Object} team - team information
  */
-function teamInfo (accessToken, callback) {
-  request({
-    url: "https://slack.com/api/team.info",
-    method: "POST",
-    form: {
-      token: accessToken
+function teamInfo(accessToken, callback) {
+  request(
+    {
+      url: "https://slack.com/api/team.info",
+      method: "POST",
+      form: {
+        token: accessToken
+      },
+      json: true
     },
-    json: true
-  }, (err, response, body) => {
-    if (err) {
-      return callback(err);
-    } else if (body && body.ok) {
-      return callback(null, body.team);
-    } else if (body && !body.ok) {
-      return callback(body.error);
+    (err, response, body) => {
+      if (err) {
+        return callback(err);
+      } else if (body && body.ok) {
+        return callback(null, body.team);
+      } else if (body && !body.ok) {
+        return callback(body.error);
+      }
+      return callback("unknown response");
     }
-    return callback("unknown response");
-  });
+  );
 }
 
 /**
@@ -56,31 +87,34 @@ function teamInfo (accessToken, callback) {
  * @param {function} callback - function(err, channel)
  * @returns {Object} channel - channel information
  */
-function channelsInfo (accessToken, channelId, callback) {
-  request({
-    url: "https://slack.com/api/channels.info",
-    method: "POST",
-    form: {
-      token: accessToken,
-      channel: channelId
+function channelsInfo(accessToken, channelId, callback) {
+  request(
+    {
+      url: "https://slack.com/api/channels.info",
+      method: "POST",
+      form: {
+        token: accessToken,
+        channel: channelId
+      },
+      json: true
     },
-    json: true
-  }, (err, response, body) => {
-    if (err) {
-      console.log("channelsInfo Error", err);
-      return callback(err);
-    } else if (body && body.ok) {
-      return callback(null, body.channel);
-    } else if (body && !body.ok && body.error === "channel_not_found") {
-      console.log("channelsInfo Channel Not Found", body.error);
-      return callback(null, "Private Channel");
-    } else if (body && !body.ok) {
-      console.log("channelsInfo Body Not OK", body.error);
-      return callback(body.error);
+    (err, response, body) => {
+      if (err) {
+        console.log("channelsInfo Error", err);
+        return callback(err);
+      } else if (body && body.ok) {
+        return callback(null, body.channel);
+      } else if (body && !body.ok && body.error === "channel_not_found") {
+        console.log("channelsInfo Channel Not Found", body.error);
+        return callback(null, "Private Channel");
+      } else if (body && !body.ok) {
+        console.log("channelsInfo Body Not OK", body.error);
+        return callback(body.error);
+      }
+      console.log("channelsInfo Unknown Response");
+      return callback("unknown response");
     }
-    console.log("channelsInfo Unknown Response");
-    return callback("unknown response");
-  });
+  );
 }
 
 /**
@@ -91,25 +125,28 @@ function channelsInfo (accessToken, channelId, callback) {
  * @param {function} callback - function(err, user)
  * @returns {Object} user - user information
  */
-function usersInfo (accessToken, userId, callback) {
-  request({
-    url: "https://slack.com/api/users.info",
-    method: "POST",
-    form: {
-      token: accessToken,
-      user: userId
+function usersInfo(accessToken, userId, callback) {
+  request(
+    {
+      url: "https://slack.com/api/users.info",
+      method: "POST",
+      form: {
+        token: accessToken,
+        user: userId
+      },
+      json: true
     },
-    json: true
-  }, (err, response, body) => {
-    if (err) {
-      return callback(err);
-    } else if (body && body.ok) {
-      return callback(null, body.user);
-    } else if (body && !body.ok) {
-      return callback(body.error);
+    (err, response, body) => {
+      if (err) {
+        return callback(err);
+      } else if (body && body.ok) {
+        return callback(null, body.user);
+      } else if (body && !body.ok) {
+        return callback(body.error);
+      }
+      return callback("unknown response");
     }
-    return callback("unknown response");
-  });
+  );
 }
 
 /**
@@ -121,23 +158,26 @@ function usersInfo (accessToken, userId, callback) {
  * @param {function} callback - function(err, responsebody)
  * @returns {null} Nothing
  */
-function postMessage (accessToken, channel, text, callback) {
-  request({
-    url: "https://slack.com/api/chat.postMessage",
-    method: "POST",
-    form: {
-      token: accessToken,
-      channel,
-      text
-    }
-  }, (error, response, body) => callback(error, body));
+function postMessage(accessToken, channel, text, callback) {
+  request(
+    {
+      url: "https://slack.com/api/chat.postMessage",
+      method: "POST",
+      form: {
+        token: accessToken,
+        channel,
+        text
+      }
+    },
+    (error, response, body) => callback(error, body)
+  );
 }
 
 /**
  * @param {Object} args - The arguments
  * @returns {null} Nothing
  */
-function main (args) {
+function main(args) {
   // Avoid calls from unknown
   if (args.token !== args.slackVerificationToken) {
     return {
@@ -150,23 +190,33 @@ function main (args) {
    * Slack will send us an initial POST
    * https://api.slack.com/events/url_verification
    */
-  if (args.__ow_method === "post" &&
+  if (
+    args.__ow_method === "post" &&
     args.type === "url_verification" &&
     args.token === args.slackVerificationToken &&
-    args.challenge) {
+    args.challenge
+  ) {
     console.log("URL verification from Slack");
     return {
       headers: {
         "Content-Type": "application/json"
       },
-      body: Buffer.from(JSON.stringify({
-        challenge: args.challenge
-      })).toString("base64")
+      body: Buffer.from(
+        JSON.stringify({
+          challenge: args.challenge
+        })
+      ).toString("base64")
     };
   }
-  
+
   // Identify if there are message subtypes to ignore See https://api.slack.com/events/message for details
-  const ignoreEventSubTypes = ["bot_message", "group_join", "channel_join", "group_leave", "channel_leave"];
+  const ignoreEventSubTypes = [
+    "bot_message",
+    "group_join",
+    "channel_join",
+    "group_leave",
+    "channel_leave"
+  ];
 
   if (_.includes(ignoreEventSubTypes, args.event.subtype, 0)) {
     // Console.log("This is message subtype we can ignore: ", args.event.subtype);
@@ -176,43 +226,43 @@ function main (args) {
   }
   // Console.log('Processing new bot event from Slack', args);
 
-
   // Connect to the Cloudant database
-  const cloudant = require("cloudant")({url: args.cloudantUrl});
+  const cloudant = require("cloudant")({ url: args.cloudantUrl });
   const botsDb = cloudant.use(args.cloudantDb);
-/**
-* TODO: Insert variables from Step 3i
-*/
-
   // Get the event to process
   const event = {
     team_id: args.team_id,
     event: args.event
   };
 
-  return new Promise(((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     async.waterfall(
       [
-      // Find the token for this bot
-        function (callback) {
+        // Find the token for this bot
+        function(callback) {
           console.log("Looking up bot info for team", event.team_id);
-          botsDb.view("bots", "by_team_id", {
-            keys: [event.team_id],
-            limit: 1,
-            include_docs: true
-          }, (err, body) => {
-            if (err) {
+          botsDb.view(
+            "bots",
+            "by_team_id",
+            {
+              keys: [event.team_id],
+              limit: 1,
+              include_docs: true
+            },
+            (err, body) => {
+              if (err) {
+                return callback(err);
+              } else if (body.rows && body.rows.length > 0) {
+                console.log("Bots: ", body.rows);
+                return callback(null, body.rows[0].doc.registration);
+              }
               return callback(err);
-            } else if (body.rows && body.rows.length > 0) {
-              console.log("Bots: ", body.rows);
-              return callback(null, body.rows[0].doc.registration);
             }
-            return callback(err);
-          });
+          );
         },
 
         // Grab info about the team
-        function (registration, callback) {
+        function(registration, callback) {
           console.log("Looking up info for team", event.team_id);
           teamInfo(registration.bot.bot_access_token, (err, team) => {
             callback(err, registration, team);
@@ -220,37 +270,46 @@ function main (args) {
         },
 
         // Grab info about the channel
-        function (registration, team, callback) {
+        function(registration, team, callback) {
           console.log("Looking up info for channel", event.event.channel);
-          channelsInfo(registration.bot.bot_access_token, event.event.channel, (err, channel) => {
-            callback(err, registration, team, channel);
-          });
+          channelsInfo(
+            registration.bot.bot_access_token,
+            event.event.channel,
+            (err, channel) => {
+              callback(err, registration, team, channel);
+            }
+          );
         },
 
         // Grab info about the user
-        function (registration, team, channel, callback) {
+        function(registration, team, channel, callback) {
           console.log("Looking up info for user", event.event.user);
-          usersInfo(registration.bot.bot_access_token, event.event.user, (err, user) => {
-            callback(err, registration, team, channel, user);
-          });
+          usersInfo(
+            registration.bot.bot_access_token,
+            event.event.user,
+            (err, user) => {
+              callback(err, registration, team, channel, user);
+            }
+          );
         },
 
         // Reply to the message
-        function (registration, team, channel, user, callback) {
+        function(registration, team, channel, user, callback) {
           if (event.event.type === "message" && !event.event.bot_id) {
-            console.log(`Processing message from ${user.name}: ${event.event.text}`);
+            console.log(
+              `Processing message from ${user.name}: ${event.event.text}`
+            );
             // Add the additional information to the response
             event.team_name = team.name; // The workspace
             event.event.channel_name = channel.name; // The channel name
             event.event.user_name = user.name; // The user name
             event.event.user_real_name = user.real_name; // User real name
-/**
-* TODO: Insert call to tsToDate function from Step 4ii
-*/
+            event.datetime = tsToDate(event.event.ts); // A human readable date-time (Zulu)
 
             // This repeats the message from the use back to the channel and should likely not be used
             postMessage(
-              registration.bot.bot_access_token, event.event.channel,
+              registration.bot.bot_access_token,
+              event.event.channel,
               `Hey ${user.real_name}, you said ${event.event.text}`,
               (err, result) => {
                 callback(err);
@@ -260,9 +319,6 @@ function main (args) {
           }
           return callback(null);
         }
-/**
-* TODO: Insert callback function from Step 3ii, NOTE: add comma to previous callback function
-*/        
       ],
 
       (err, response) => {
@@ -279,5 +335,5 @@ function main (args) {
         }
       }
     );
-  }));
+  });
 }

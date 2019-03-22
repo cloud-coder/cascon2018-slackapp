@@ -42,16 +42,97 @@ Note: Diagrams are created using https://www.draw.io/
 
    - **This is a preconfigured Watson Assistant instance that you will connect to and use. This instance will likely be unavailable at later dates. See the instructions on importing a configuration to set up your own instance.**
 
-1. Deploy the update
+1. Add the following Watcson Assistant funtion to the end of slackapp-event.js
 
-   For Linux or Mac user, you may need to add the execute permission first
+   ```javascript
+   const watsonAssistant = (args, message, context, callback) => {
+     console.log("start calling watson assistant for " + message);
+     var watsonAssistantVersion =
+       args.WATSON_COVERSATION_VERSION || "2018-02-16";
+     var watson_url = `
+      ${args.CONVERSATION_URL}/v1/workspaces/${
+       args.WORKSPACE_ID
+     }/message?version=${watsonAssistantVersion}`;
+
+     let body;
+     if (context) {
+       body = JSON.stringify({
+         input: {
+           text: message
+         },
+         context,
+         alternate_intents: true
+       });
+     } else {
+       body = JSON.stringify({
+         input: {
+           text: message
+         },
+         alternate_intents: true
+       });
+     }
+     request(
+       {
+         method: "POST",
+         uri: watson_url,
+         headers: {
+           Authorization:
+             "Basic " +
+             new Buffer(
+               args.CONVERSATION_USERNAME + ":" + args.CONVERSATION_PASSWORD
+             ).toString("base64"),
+           "Content-Type": "application/json"
+         },
+         body
+       },
+       (error, response, body) => {
+         if (error) {
+           callback("Unable to connect to Watson Assistant" + error);
+           console.log("get error response, error:" + error);
+         } else {
+           var jsonBody = JSON.parse(body);
+           callback(undefined, jsonBody);
+         }
+       }
+     );
+   };
+   ```
+
+1. Add the Watcson Assistant funtion when process the slack messege. At line 313 look for postMessage call, use the following code to replace it.
+
+   ```javascript
+   watsonAssistant(
+     args,
+     event.event.text,
+     watson_conversion_context,
+     (errorMessage, results) => {
+       if (errorMessage) {
+         console.log(errorMessage);
+         callback(errorMessage);
+       } else {
+         watson_conversion_context = results.context;
+         console.log("get results from watson assistant," + results);
+         postMessage(
+           registration.bot.bot_access_token,
+           event.event.channel,
+           `Hey ${user.real_name}, ` + results.output.text,
+           (err, result) => {
+             callback(err);
+           }
+         );
+       }
+     }
+   );
+   ```
+
+1. Deploy the update, for Linux or Mac user, you may need to add the execute permission first
 
    ```shell
    chmod +x deploy.sh
    ```
 
-   1. Uninstall with ./deploy.sh --uninstall (required because we need to re-create the package with the additional parameters.json file)
-   2. Install with ./deploy.sh --install
+1. Uninstall with ./deploy.sh --uninstall (required because we need to re-create the package with the additional parameters.json file)
+1. Install with ./deploy.sh --install
 
 1. Go to the channel and type a message and get it replied back out to you:
 
@@ -85,7 +166,7 @@ We use a predefined Watson Assistant workspace for this workshop, so you do not 
 
 1. After the tool is launched, go the the Workspace tab and click on the import icon as shown below.
 
-    ![](../xdocs/watsonAssistantWorspace.jpg)
+   ![](../xdocs/watsonAssistantWorspace.jpg)
 
 1. Browse to the file `solution/car_demo_watsonAssistant_wp.json` and import it.
 
@@ -96,5 +177,6 @@ We use a predefined Watson Assistant workspace for this workshop, so you do not 
 ## Next Step
 
 You are now ready to continue with one of the following:
+
 - <a href='../lab02-handlingacommand/README.md'>Lab 02 - Handling a Command</a>
 - <a href='../lab03-option01-savetocloudant/README.md'>Lab 03 - Option 01 - Save to Cloudant</a>
