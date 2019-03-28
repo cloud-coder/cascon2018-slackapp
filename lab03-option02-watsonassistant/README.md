@@ -42,7 +42,7 @@ Note: Diagrams are created using https://www.draw.io/
 
    - **This is a preconfigured Watson Assistant instance that you will connect to and use. This instance will likely be unavailable at later dates. See the instructions on importing a configuration to set up your own instance.**
 
-1. Add the following Watcson Assistant funtion to the end of slackapp-event.js
+1. Add the following Watson Assistant funtion to the end of slackapp-event.js
 
    ```javascript
    const watsonAssistant = (args, message, context, callback) => {
@@ -98,7 +98,7 @@ Note: Diagrams are created using https://www.draw.io/
    };
    ```
 
-1. Add the Watcson Assistant funtion when process the slack messege. At line 313 look for postMessage call, use the following code to replace it.
+1. Add the Watson Assistant funtion when process the slack message. At line 313 look for postMessage call, use the following code to replace it.
 
    ```javascript
    watsonAssistant(
