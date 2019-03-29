@@ -50,6 +50,7 @@ In order to implement some code, we need to create the application on the Slack 
 
 ## Log in to IBM Cloud
 
+### Non-IBMer
 Open up a terminal. Type the following to login to IBM Cloud.
 
 ```shell
@@ -59,6 +60,21 @@ ibmcloud target -o <ibm cloud user> -s dev
 Note: 
  - If you are logging in with a federated IBMid you will be prompted to generate a one-time passcode to login.
  - The Region and End-Point of your organization for your account.
+
+### IBMer
+Open up a terminal. Type the following to login to IBM Cloud.
+
+The first command will ask you to open a web page where you will login with IBMId and copy a code back onto the prompt. 
+You _may_ be prompted to select from a list of accounts if you have multiple accounts configured. 
+```shell
+ibmcloud login --sso
+```
+
+The second command will interactively log you in to your cloud foundry org and space.
+```shell
+ibmcloud target --cf
+```
+
 
 ## Getting ready for the rest of the lab
 
